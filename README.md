@@ -5,7 +5,11 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/spatie/laravel-horizon-watcher/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/spatie/laravel-horizon-watcher/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-horizon-watcher.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-horizon-watcher)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+How many hours have lost debugging local jobs only to find out that you forgot to restart Horizon?
+
+This package contains a command `horizon:watch` that will automatically restart Horizon when any PHP file is created, updated or deleted.
+
+This command is meant to be used in local environment.
 
 ## Support us
 
@@ -23,38 +27,38 @@ You can install the package via composer:
 composer require spatie/laravel-horizon-watcher
 ```
 
-You can publish and run the migrations with:
+
 
 ```bash
-php artisan vendor:publish --tag="laravel-horizon-watcher-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-horizon-watcher-config"
+php artisan vendor:publish --tag="horizon-watcher-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+    /*
+     * Horizon will be restarted when any PHP file
+     * inside these directories get created,
+     * updated or deleted.
+     */
+
+    'paths' => [
+        app_path(),
+        resource_path('views'),
+    ],
+
+    /*
+     * This command will be executed to start Horizon.
+     */
+    'command' => 'php artisan horizon',
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-horizon-watcher-views"
-```
 
 ## Usage
 
-```php
-$horizonWatcher = new Spatie\HorizonWatcher();
-echo $horizonWatcher->echoPhrase('Hello, Spatie!');
-```
+Run `php artisan horizon:watch` to start Horizon. When a PHP file in your project gets created, updated or deleted, Horizon will automatically restart.
 
 ## Testing
 
