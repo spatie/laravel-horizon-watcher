@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-horizon-watcher",
-    "description": "Automatically restart Horizon when local file changes are detected",
+    "description": "Automatically restart Horizon when local PHP files change",
     "keywords": [
         "spatie",
         "laravel",
