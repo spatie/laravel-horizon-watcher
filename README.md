@@ -7,7 +7,7 @@
 
 How many hours have lost debugging local jobs only to find out that you forgot to restart Horizon?
 
-This package contains an Artisan command `horizon:watch` that will automatically restart Horizon when any PHP file is created, updated or deleted.
+This package contains an Artisan command `horizon:watch` that will start Horizon and automatically restart it when any PHP file is created, updated or deleted.
 
 This command is meant to be used in local environment.
 
