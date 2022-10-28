@@ -11,7 +11,7 @@ This package contains a command `horizon:watch` that will automatically restart 
 
 This command is meant to be used in local environment.
 
-![screenshot](https://github.com/spatie/laravel-horizon-watcher/blob/main/docs/images/screenshot.jpg?raw=true)
+![screenshot](https://github.com/spatie/laravel-horizon-watcher/blob/main/docs/images/screenshot.jpg)
 
 ## Support us
 
