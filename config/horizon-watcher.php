@@ -9,6 +9,7 @@ return [
 
     'paths' => [
         app_path(),
+        config_path(),
         resource_path('views'),
     ],
 
