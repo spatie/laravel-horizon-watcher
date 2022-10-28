@@ -7,7 +7,7 @@
 
 How many hours have lost debugging local jobs only to find out that you forgot to restart Horizon?
 
-This package contains a command `horizon:watch` that will automatically restart Horizon when any PHP file is created, updated or deleted.
+This package contains an Artisan command `horizon:watch` that will automatically restart Horizon when any PHP file is created, updated or deleted.
 
 This command is meant to be used in local environment.
 
@@ -29,7 +29,7 @@ You can install the package via composer:
 composer require spatie/laravel-horizon-watcher
 ```
 
-
+Optionally, you can publish the config file with this command:
 
 ```bash
 php artisan vendor:publish --tag="horizon-watcher-config"
