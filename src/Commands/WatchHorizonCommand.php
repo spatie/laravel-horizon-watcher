@@ -23,7 +23,21 @@ class WatchHorizonCommand extends Command
         if (! $horizonStarted) {
             return Command::FAILURE;
         }
+
         $this->listenForChanges();
+    }
+
+    protected function startHorizon(): bool
+    {
+        $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'));
+
+        $this->horizonProcess->setTty(true)->setTimeout(null);
+
+        $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
+
+        sleep(1);
+
+        return ! $this->horizonProcess->isTerminated();
     }
 
     protected function listenForChanges(): self
@@ -40,20 +54,7 @@ class WatchHorizonCommand extends Command
         return $this;
     }
 
-    public function startHorizon(): bool
-    {
-        $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'));
-
-        $this->horizonProcess->setTty(true)->setTimeout(null);
-
-        $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
-
-        sleep(1);
-
-        return ! $this->horizonProcess->isTerminated();
-    }
-
-    public function restartHorizon(): self
+    protected function restartHorizon(): self
     {
         $this->components->info('Change detected! Restarting horizon...');
 
