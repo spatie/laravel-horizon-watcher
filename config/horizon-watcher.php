@@ -4,7 +4,7 @@ return [
     /*
      * Horizon will be restarted when any PHP file
      * inside these directories get created,
-     * updated or deleted
+     * updated or deleted.
      */
 
     'paths' => [
@@ -13,7 +13,7 @@ return [
     ],
 
     /*
-     * This command will be executed to start Horizon
+     * This command will be executed to start Horizon.
      */
     'command' => 'php artisan horizon',
 ];
