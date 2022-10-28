@@ -2,9 +2,9 @@
 
 namespace Spatie\HorizonWatcher;
 
+use Spatie\HorizonWatcher\Commands\WatchHorizonCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\HorizonWatcher\Commands\WatchHorizonCommand;
 
 class HorizonWatcherServiceProvider extends PackageServiceProvider
 {

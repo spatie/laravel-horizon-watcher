@@ -46,7 +46,7 @@ class WatchHorizonCommand extends Command
 
         $this->horizonProcess->setTty(true)->setTimeout(null);
 
-        $this->horizonProcess->start(fn($type, $output) => $this->info($output));
+        $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
 
         sleep(1);
 
