@@ -44,7 +44,7 @@ class WatchHorizonCommand extends Command
     {
         Watch::paths(config('horizon-watcher.paths'))
             ->onAnyChange(function (string $event, string $path) {
-                if ($this->isPhpFile($path)) {
+                if ($this->changedPathShouldRestartHorizon($path)) {
                     $this->restartHorizon();
                 }
             })
@@ -52,6 +52,21 @@ class WatchHorizonCommand extends Command
             ->start();
 
         return $this;
+    }
+
+    protected function changedPathShouldRestartHorizon(string $path): bool
+    {
+        if ($this->isPhpFile($path)) {
+            return true;
+        }
+
+        foreach(config('horizon-watcher.paths') as $configuredPath) {
+            if ($path === $configuredPath) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     protected function restartHorizon(): self
