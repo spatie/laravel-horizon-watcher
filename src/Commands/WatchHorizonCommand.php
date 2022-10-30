@@ -60,7 +60,7 @@ class WatchHorizonCommand extends Command
             return true;
         }
 
-        foreach(config('horizon-watcher.paths') as $configuredPath) {
+        foreach (config('horizon-watcher.paths') as $configuredPath) {
             if ($path === $configuredPath) {
                 return true;
             }
