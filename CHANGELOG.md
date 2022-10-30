@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 0.0.5 - 2022-10-30
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/0.0.4...0.0.5
+
 ## 0.0.4 - 2022-10-30
 
 ### What's Changed
