@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.0.1 - 2022-10-30
+
+- listen for changes to PHP files in `database_path()`
+
 ## 1.0.0 - 2022-10-30
 
 - initial release
