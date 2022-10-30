@@ -48,7 +48,6 @@ class WatchHorizonCommand extends Command
                     $this->restartHorizon();
                 }
             })
-
             ->start();
 
         return $this;
