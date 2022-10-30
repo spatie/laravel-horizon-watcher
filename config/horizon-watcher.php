@@ -2,11 +2,10 @@
 
 return [
     /*
-     * Horizon will be restarted when any PHP file
-     * inside these directories get created,
-     * updated or deleted.
+     * Horizon will be restarted when any PHP file inside these directories
+     * get created, updated or deleted. You can also specify other kinds
+     * of files here.
      */
-
     'paths' => [
         app_path(),
         config_path(),
