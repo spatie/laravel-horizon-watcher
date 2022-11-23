@@ -11,13 +11,13 @@ class WatchQueueWorkCommand extends Command
 {
     protected Process $queueWorkProcess;
 
-    protected $signature = 'queue:watch';
+    protected $signature = 'queue:watch {--queue=default}';
 
     protected $description = 'Run Queue and restart it when PHP files are changed';
 
     public function handle()
     {
-        $this->components->info('Starting Queue and will restart it when any files change...');
+        $this->components->info('Starting Queue ' . $this->option('queue') . ' and will restart it when any files change...');
 
         $queueWorkStarted = $this->startQueueWork();
 
@@ -30,7 +30,7 @@ class WatchQueueWorkCommand extends Command
 
     protected function startQueueWork(): bool
     {
-        $this->queueWorkProcess = Process::fromShellCommandline(config('queue-watcher.command'));
+        $this->queueWorkProcess = Process::fromShellCommandline(config('queue-watcher.command') .'--queue=' . $this->option('queue'));
 
         $this->queueWorkProcess->setTty(true)->setTimeout(null);
 
@@ -70,7 +70,7 @@ class WatchQueueWorkCommand extends Command
 
     protected function restartQueue(): self
     {
-        $this->components->info('Change detected! Restarting queue...');
+        $this->components->info('Change detected! Restarting Queue . ' . $this->option('queue') . '...');
 
         $this->queueWorkProcess->stop();
 
