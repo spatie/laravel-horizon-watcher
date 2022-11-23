@@ -2,7 +2,7 @@
 
 return [
     /*
-     * Horizon will be restarted when any PHP file inside these directories
+     * Laravel Queue will be restarted when any PHP file inside these directories
      * get created, updated or deleted. You can also specify other kinds
      * of files here.
      */
@@ -16,7 +16,7 @@ return [
     ],
 
     /*
-     * This command will be executed to start Horizon.
+     * This command will be executed to start Laravel Queue.
      */
     'command' => 'php artisan queue:work',
 ];
