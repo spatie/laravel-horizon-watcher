@@ -4,6 +4,7 @@ namespace Spatie\HorizonWatcher\Commands;
 
 use Illuminate\Console\Command;
 use Spatie\Watcher\Watch;
+use Symfony\Component\Console\Command\Command as CommandAlias;
 use Symfony\Component\Process\Process;
 
 class WatchQueueWorkCommand extends Command
@@ -21,7 +22,7 @@ class WatchQueueWorkCommand extends Command
         $queueWorkStarted = $this->startQueueWork();
 
         if (! $queueWorkStarted) {
-            return Command::FAILURE;
+            return CommandAlias::FAILURE;
         }
 
         $this->listenForChanges();
