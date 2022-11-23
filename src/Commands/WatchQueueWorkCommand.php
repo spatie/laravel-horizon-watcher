@@ -3,6 +3,7 @@
 namespace Spatie\HorizonWatcher\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Spatie\Watcher\Watch;
 use Symfony\Component\Console\Command\Command as CommandAlias;
 use Symfony\Component\Process\Process;
@@ -30,7 +31,7 @@ class WatchQueueWorkCommand extends Command
 
     protected function startQueueWork(): bool
     {
-        $this->queueWorkProcess = Process::fromShellCommandline(config('queue-watcher.command') .'--queue=' . $this->option('queue'));
+        $this->queueWorkProcess = Process::fromShellCommandline(config('queue-watcher.command') . ' --queue=' . $this->option('queue'));
 
         $this->queueWorkProcess->setTty(true)->setTimeout(null);
 
@@ -70,7 +71,7 @@ class WatchQueueWorkCommand extends Command
 
     protected function restartQueue(): self
     {
-        $this->components->info('Change detected! Restarting Queue . ' . $this->option('queue') . '...');
+        $this->components->info('Change detected! Restarting Queue ' . $this->option('queue') . '...');
 
         $this->queueWorkProcess->stop();
 

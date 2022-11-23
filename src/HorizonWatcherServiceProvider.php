@@ -13,8 +13,9 @@ class HorizonWatcherServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-horizon-watcher')
-            ->hasConfigFile()
-            ->hasCommand(WatchHorizonCommand::class)
+            ->hasConfigFile('horizon-watcher')
+            ->hasCommand(WatchHorizonCommand::class);
+        $package->hasConfigFile('queue-watcher')
             ->hasCommand(WatchQueueWorkCommand::class);
     }
 }
