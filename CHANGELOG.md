@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.0.3 - 2023-03-15
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/spatie/laravel-horizon-watcher/pull/6
+- Kill child processes before exiting horizon by @sdapkus in https://github.com/spatie/laravel-horizon-watcher/pull/9
+
+### New Contributors
+
+- @sdapkus made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/9
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.0.2...1.0.3
+
 ## 1.0.2 - 2023-01-25
 
 ### What's Changed
