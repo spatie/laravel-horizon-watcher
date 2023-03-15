@@ -85,6 +85,13 @@ class WatchHorizonCommand extends Command
 
     protected function stopHorizon(): void
     {
+        $this->killStrayHorizonProcesses();
+
+        $this->horizonProcess->stop();
+    }
+
+    protected function killStrayHorizonProcesses(): void
+    {
         (Process::fromShellCommandline('pgrep -P ' . $this->horizonProcess->getPid()))
             ->run(function ($type, $output) {
                 $childPids = explode("\n", $output);
@@ -96,7 +103,5 @@ class WatchHorizonCommand extends Command
                     (Process::fromShellCommandline('kill ' . $childPid))->run();
                 }
             });
-
-        $this->horizonProcess->stop();
     }
 }
