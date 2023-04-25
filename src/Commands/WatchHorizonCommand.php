@@ -10,7 +10,7 @@ class WatchHorizonCommand extends Command
 {
     protected Process $horizonProcess;
 
-    protected $signature = 'horizon:watch';
+    protected $signature = 'horizon:watch {--without-tty : Disable output to TTY}}';
 
     protected $description = 'Run Horizon and restart it when PHP files are changed';
 
@@ -31,7 +31,7 @@ class WatchHorizonCommand extends Command
     {
         $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'));
 
-        $this->horizonProcess->setTty(true)->setTimeout(null);
+        $this->horizonProcess->setTty(! $this->option('without-tty') )->setTimeout(null);
 
         $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
 
