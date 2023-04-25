@@ -31,7 +31,7 @@ class WatchHorizonCommand extends Command
     {
         $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'));
 
-        $this->horizonProcess->setTty(! $this->option('without-tty') )->setTimeout(null);
+        $this->horizonProcess->setTty(! $this->option('without-tty'))->setTimeout(null);
 
         $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
 
