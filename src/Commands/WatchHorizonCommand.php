@@ -10,13 +10,19 @@ class WatchHorizonCommand extends Command
 {
     protected Process $horizonProcess;
 
-    protected $signature = 'horizon:watch {--without-tty : Disable output to TTY}}';
+    protected $signature = 'horizon:watch {--without-tty : Disable output to TTY}';
 
     protected $description = 'Run Horizon and restart it when PHP files are changed';
+
+    protected $trappedSignal = null;
 
     public function handle()
     {
         $this->components->info('Starting Horizon and will restart it when any files change...');
+
+        $this->trap([SIGINT, SIGTERM], function ($signal): void {
+            $this->trappedSignal = $signal;
+        });
 
         $horizonStarted = $this->startHorizon();
 
@@ -48,6 +54,9 @@ class WatchHorizonCommand extends Command
                     $this->restartHorizon();
                 }
             })
+            ->shouldContinue(function () {
+                return $this->trappedSignal === null;
+            })
             ->start();
 
         return $this;
@@ -72,7 +81,8 @@ class WatchHorizonCommand extends Command
     {
         $this->components->info('Change detected! Restarting horizon...');
 
-        $this->stopHorizon();
+        $this->horizonProcess->stop();
+
         $this->startHorizon();
 
         return $this;
@@ -81,27 +91,5 @@ class WatchHorizonCommand extends Command
     protected function isPhpFile(string $path): bool
     {
         return str_ends_with(strtolower($path), '.php');
-    }
-
-    protected function stopHorizon(): void
-    {
-        $this->killStrayHorizonProcesses();
-
-        $this->horizonProcess->stop();
-    }
-
-    protected function killStrayHorizonProcesses(): void
-    {
-        (Process::fromShellCommandline('pgrep -P '.$this->horizonProcess->getPid()))
-            ->run(function ($type, $output) {
-                $childPids = explode("\n", $output);
-                foreach ($childPids as $childPid) {
-                    if (! $childPid) {
-                        continue;
-                    }
-
-                    (Process::fromShellCommandline('kill '.$childPid))->run();
-                }
-            });
     }
 }
