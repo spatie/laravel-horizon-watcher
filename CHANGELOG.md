@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.0.5 - 2023-06-15
+
+### What's Changed
+
+- Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.0 by @dependabot in https://github.com/spatie/laravel-horizon-watcher/pull/14
+- Trap signals rather than killing processes by @joelvh in https://github.com/spatie/laravel-horizon-watcher/pull/16
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 by @dependabot in https://github.com/spatie/laravel-horizon-watcher/pull/15
+
+### New Contributors
+
+- @joelvh made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/16
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.0.4...1.0.5
+
 ## 1.0.4 - 2023-04-25
 
 ### What's Changed
