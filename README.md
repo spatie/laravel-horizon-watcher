@@ -31,13 +31,13 @@ composer require spatie/laravel-horizon-watcher --dev
 In your project, you should have the JavaScript package [`chokidar`](https://github.com/paulmillr/chokidar) installed. You can install it via npm
 
 ```bash
-npm install chokidar
+npm install chokidar --save-dev
 ```
 
 or Yarn
 
 ```bash
-yarn add chokidar
+yarn add chokidar --dev
 ```
 
 Optionally, you can publish the config file with this command:
