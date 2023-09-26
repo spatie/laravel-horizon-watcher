@@ -38,6 +38,7 @@ class WatchHorizonCommand extends Command
 
             // Forward signal to Horizon process.
             $this->horizonProcess->stop(signal: $signal);
+            $this->horizonProcess->wait();
         });
 
         $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
@@ -83,6 +84,7 @@ class WatchHorizonCommand extends Command
         $this->components->info('Change detected! Restarting horizon...');
 
         $this->horizonProcess->stop();
+        $this->horizonProcess->wait();
 
         $this->startHorizon();
 
