@@ -33,7 +33,7 @@ class WatchHorizonCommand extends Command
             ->setTty(! $this->option('without-tty'))
             ->setTimeout(null);
 
-        $this->trap([SIGINT, SIGTERM, SIGQUIT, SIGKILL], function ($signal): void {
+        $this->trap([SIGINT, SIGTERM, SIGQUIT], function ($signal): void {
             $this->trappedSignal = $signal;
 
             // Forward signal to Horizon process.
