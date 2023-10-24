@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.0.6 - 2023-10-24
+
+### What's Changed
+
+- Install as dep by @francoism90 in https://github.com/spatie/laravel-horizon-watcher/pull/20
+- Forward signal to process by @joelvh in https://github.com/spatie/laravel-horizon-watcher/pull/22
+
+### New Contributors
+
+- @francoism90 made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/20
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.0.5...1.0.6
+
 ## 1.0.5 - 2023-06-15
 
 ### What's Changed
