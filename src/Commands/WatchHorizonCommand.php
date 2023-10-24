@@ -20,13 +20,7 @@ class WatchHorizonCommand extends Command
     {
         $this->components->info('Starting Horizon and will restart it when any files change...');
 
-        $this->trap([SIGINT, SIGTERM], function ($signal): void {
-            $this->trappedSignal = $signal;
-        });
-
-        $horizonStarted = $this->startHorizon();
-
-        if (! $horizonStarted) {
+        if (! $this->startHorizon()) {
             return Command::FAILURE;
         }
 
@@ -35,9 +29,17 @@ class WatchHorizonCommand extends Command
 
     protected function startHorizon(): bool
     {
-        $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'));
+        $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'))
+            ->setTty(! $this->option('without-tty'))
+            ->setTimeout(null);
 
-        $this->horizonProcess->setTty(! $this->option('without-tty'))->setTimeout(null);
+        $this->trap([SIGINT, SIGTERM, SIGQUIT], function ($signal): void {
+            $this->trappedSignal = $signal;
+
+            // Forward signal to Horizon process.
+            $this->horizonProcess->stop(signal: $signal);
+            $this->horizonProcess->wait();
+        });
 
         $this->horizonProcess->start(fn ($type, $output) => $this->info($output));
 
@@ -82,6 +84,7 @@ class WatchHorizonCommand extends Command
         $this->components->info('Change detected! Restarting horizon...');
 
         $this->horizonProcess->stop();
+        $this->horizonProcess->wait();
 
         $this->startHorizon();
 
