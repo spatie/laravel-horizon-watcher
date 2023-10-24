@@ -1,7 +1,6 @@
 # Automatically restart Horizon when local PHP files change
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-horizon-watcher.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-horizon-watcher)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spatie/laravel-horizon-watcher/run-tests?label=tests)](https://github.com/spatie/laravel-horizon-watcher/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-horizon-watcher.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-horizon-watcher)
 
 How many hours have lost debugging local jobs only to find out that you forgot to restart Horizon?
