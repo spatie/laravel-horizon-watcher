@@ -18,7 +18,7 @@ class WatchHorizonCommand extends Command
 
     public function handle()
     {
-        $this->components->info('Starting Horizon and will restart it when any files change...');
+        $this->components->info('Starting Horizon, and restart when any file changes...');
 
         if (! $this->startHorizon()) {
             return Command::FAILURE;
