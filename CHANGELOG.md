@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.0.7 - 2024-02-05
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/spatie/laravel-horizon-watcher/pull/25
+* Fixed typo (took the liberty to make the info-line more clear) by @ypho in https://github.com/spatie/laravel-horizon-watcher/pull/27
+
+### New Contributors
+
+* @ypho made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/27
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.0.6...1.0.7
+
 ## 1.0.6 - 2023-10-24
 
 ### What's Changed
