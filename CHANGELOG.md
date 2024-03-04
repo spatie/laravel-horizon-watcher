@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.1.0 - 2024-03-04
+
+### What's Changed
+
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-horizon-watcher/pull/28
+
+### New Contributors
+
+* @laravel-shift made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/28
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.0.7...1.1.0
+
 ## 1.0.7 - 2024-02-05
 
 ### What's Changed
