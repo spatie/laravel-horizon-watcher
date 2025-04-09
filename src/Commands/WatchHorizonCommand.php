@@ -10,7 +10,7 @@ class WatchHorizonCommand extends Command
 {
     protected Process $horizonProcess;
 
-    protected $signature = 'horizon:watch {--without-tty : Disable output to TTY}';
+    protected $signature = 'horizon:watch {--without-tty : Disable output to TTY} {--reload-config : Reload configuration every time a file changes}';
 
     protected $description = 'Run Horizon and restart it when PHP files are changed';
 
@@ -29,7 +29,8 @@ class WatchHorizonCommand extends Command
 
     protected function startHorizon(): bool
     {
-        $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'))
+        $environment = $this->option('reload-config') ? \Dotenv\Dotenv::createArrayBacked(base_path())->load() : null;
+        $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'), null, $environment)
             ->setTty(! $this->option('without-tty'))
             ->setTimeout(null);
 
