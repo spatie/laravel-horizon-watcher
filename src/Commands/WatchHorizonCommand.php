@@ -2,10 +2,10 @@
 
 namespace Spatie\HorizonWatcher\Commands;
 
+use Dotenv\Dotenv;
 use Illuminate\Console\Command;
 use Spatie\Watcher\Watch;
 use Symfony\Component\Process\Process;
-use Dotenv\Dotenv;
 
 class WatchHorizonCommand extends Command
 {
@@ -30,10 +30,10 @@ class WatchHorizonCommand extends Command
 
     protected function startHorizon(): bool
     {
-        $environment = $this->option('reload-config') 
-            ? Dotenv::createArrayBacked(base_path())->load() 
+        $environment = $this->option('reload-config')
+            ? Dotenv::createArrayBacked(base_path())->load()
             : null;
-        
+
         $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'), null, $environment)
             ->setTty(! $this->option('without-tty'))
             ->setTimeout(null);
