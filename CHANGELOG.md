@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.1.2 - 2025-04-10
+
+### What's Changed
+
+* Add support to reflect changes in .env when restarting queue workers by @chippisc in https://github.com/spatie/laravel-horizon-watcher/pull/44
+
+### New Contributors
+
+* @chippisc made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/44
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.1.1...1.1.2
+
 ## 1.1.1 - 2025-02-21
 
 ### What's Changed
