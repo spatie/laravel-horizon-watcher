@@ -4,6 +4,7 @@ namespace Spatie\HorizonWatcher\Commands;
 
 use Dotenv\Dotenv;
 use Illuminate\Console\Command;
+use Illuminate\Support\Env;
 use Spatie\Watcher\Watch;
 use Symfony\Component\Process\Process;
 
@@ -31,7 +32,11 @@ class WatchHorizonCommand extends Command
     protected function startHorizon(): bool
     {
         $environment = $this->option('reload-config')
-            ? Dotenv::createArrayBacked(base_path())->load()
+            ? Dotenv::create(
+				Env::getRepository(),
+				$this->laravel->environmentPath(),
+				$this->laravel->environmentFile()
+			)->load()
             : null;
 
         $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'), null, $environment)
