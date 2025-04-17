@@ -33,10 +33,10 @@ class WatchHorizonCommand extends Command
     {
         $environment = $this->option('reload-config')
             ? Dotenv::create(
-				Env::getRepository(),
-				$this->laravel->environmentPath(),
-				$this->laravel->environmentFile()
-			)->load()
+                Env::getRepository(),
+                $this->laravel->environmentPath(),
+                $this->laravel->environmentFile()
+            )->load()
             : null;
 
         $this->horizonProcess = Process::fromShellCommandline(config('horizon-watcher.command'), null, $environment)
