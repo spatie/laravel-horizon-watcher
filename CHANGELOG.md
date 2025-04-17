@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.1.3 - 2025-04-17
+
+### What's Changed
+
+* Make --reload-config use system env's by @JonathanGawrych in https://github.com/spatie/laravel-horizon-watcher/pull/45
+
+### New Contributors
+
+* @JonathanGawrych made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/45
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.1.2...1.1.3
+
 ## 1.1.2 - 2025-04-10
 
 ### What's Changed
