@@ -61,6 +61,8 @@ return [
         resource_path('views'),
         base_path('.env'),
         base_path('composer.lock'),
+        base_path('bootstrap/app.php'),
+        base_path('bootstrap/providers.php'),
     ],
 
     /*
