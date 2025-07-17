@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.1.4 - 2025-07-17
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/spatie/laravel-horizon-watcher/pull/46
+* Add `bootstrap/app.php` and `bootstrap/providers.php` to watched file… by @kamilkozak in https://github.com/spatie/laravel-horizon-watcher/pull/48
+
+### New Contributors
+
+* @kamilkozak made their first contribution in https://github.com/spatie/laravel-horizon-watcher/pull/48
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.1.3...1.1.4
+
 ## 1.1.3 - 2025-04-17
 
 ### What's Changed
