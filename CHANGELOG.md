@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-horizon-watcher` will be documented in this file.
 
+## 1.2.0 - 2026-03-12
+
+### What's Changed
+
+- Restored PHP 8.3 and 8.4 support that was accidentally dropped in v1.1.5
+- Added PHP 8.3 and 8.4 to the CI test matrix
+
+**Full Changelog**: https://github.com/spatie/laravel-horizon-watcher/compare/1.1.5...1.2.0
+
 ## 1.1.5 - 2026-02-27
 
 Support Laravel 13
